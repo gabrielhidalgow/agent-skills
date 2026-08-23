@@ -1,0 +1,5 @@
+# Experiments live here but are never committed — see experiments/README.md
+experiments/
+
+# macOS
+.DS_Store

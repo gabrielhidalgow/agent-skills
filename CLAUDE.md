@@ -17,6 +17,14 @@ next `/pinterest` invocation — no reinstall, no copy. `git status` sees edits 
 The only non-automatic step is a **stale clone**: changes made on github.com or another machine need
 `git pull` here first. Check with `git status -sb | head -1` → clean is `## main...origin/main`.
 
+## Experiments
+
+`experiments/` at the repo root is git-ignored scratch space. It sits outside `pinterest/` deliberately:
+sub-directories of a skill are read as part of it, so anything left there travels with the skill.
+
+One dated directory per experiment with a `NOTES.md`. If an experiment settles something, promote the
+conclusion into `SKILL.md` or the Invariants below and let the folder stay disposable.
+
 ## Testing a change
 
 Run `/pinterest` on a real brief. There is no unit test — the skill is instructions, and the only
