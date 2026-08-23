@@ -35,6 +35,31 @@ ln -s ~/code/agent-skills/pinterest ~/.claude/skills/pinterest
 plain markdown; the only host-specific line is how to display an image inline, and it names the fallback
 (print the file path) for hosts without an image channel.
 
+### Updating
+
+The symlink means the clone and the live skill are **the same file**, not two copies — verified by inode.
+So there is no sync command to run locally, and no copy step to forget:
+
+| Where you edited | To update the live skill |
+|---|---|
+| The clone, or `~/.claude/skills/pinterest` — same file | **Nothing.** It is already live. Commit and push when ready. |
+| github.com, or another machine | `git -C ~/code/agent-skills pull` — then live immediately |
+
+The one failure mode is a **silently stale clone**: edit on github.com, forget to pull, and this machine
+keeps running the old skill with no error. One-line check:
+
+```bash
+git -C ~/code/agent-skills status -sb | head -1     # "## main...origin/main" with no ahead/behind
+```
+
+Pulling is deliberately manual rather than hooked, so nothing changes the skill mid-project.
+
+### Installing gotcha
+
+**Every subdirectory of `~/.claude/skills/` registers as a skill — including dot-prefixed ones.** A backup
+copy stashed there (`.pinterest-backup`) shows up as a second, duplicate skill. Keep backups outside that
+directory; the git history is the backup anyway.
+
 ### Not usable in Claude chat
 
 Agent Skills there run in a sandbox with **no network access and no runtime package installation**, so the
