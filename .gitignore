@@ -1,5 +1,7 @@
-# Experiments live here but are never committed — see experiments/README.md
-experiments/
+# Scratch experiments are never committed — but the README explaining the
+# convention is, so a fresh clone gets the folder and knows what it's for.
+experiments/*
+!experiments/README.md
 
 # macOS
 .DS_Store
