@@ -1,10 +1,10 @@
 {
-  "name": "gabrielhidalgow-agent-skills",
+  "name": "pinterest-skill",
   "owner": {
     "name": "Gabriel Hidalgo Witker"
   },
   "metadata": {
-    "description": "Skills for agentic coding tools",
+    "description": "Quick visual reference from Pinterest, for grounding design decisions",
     "version": "1.0.0"
   },
   "plugins": [
@@ -14,7 +14,7 @@
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/pinterest"
+        "./"
       ]
     }
   ]
