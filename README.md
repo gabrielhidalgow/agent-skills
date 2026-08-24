@@ -24,16 +24,35 @@ Pinterest-side breakage can be patched immediately without waiting on upstream.
 
 ### Install
 
-**Claude Code** — symlink into the user-level skills directory so it loads in every project:
+**Any agent — one command.** Works for Claude Code, Cursor, Codex, GitHub Copilot, Windsurf, Gemini CLI,
+OpenCode and others:
+
+```bash
+npx skills add gabrielhidalgow/agent-skills
+```
+
+Add `-g` to install for every project rather than just the current one.
+
+**Claude Code, natively** — register this repo as a plugin marketplace:
+
+```bash
+/plugin marketplace add gabrielhidalgow/agent-skills
+```
+
+Then `/plugin install pinterest@gabrielhidalgow-agent-skills`.
+
+**By hand** — the skill is a directory of plain markdown, so any agent that reads instructions from a file
+can use `skills/pinterest/SKILL.md` directly. The only host-specific line is how to display an image
+inline, and it names the fallback (print the file path) for hosts without an image channel.
+
+## Hacking on it
+
+Clone and symlink, so edits are live with no sync step:
 
 ```bash
 git clone https://github.com/gabrielhidalgow/agent-skills.git ~/code/agent-skills
-ln -s ~/code/agent-skills/pinterest ~/.claude/skills/pinterest
+ln -s ~/code/agent-skills/skills/pinterest ~/.claude/skills/pinterest
 ```
-
-**Any other agent (Codex, Grok CLI, …)** — point it at `pinterest/SKILL.md` as instructions. The file is
-plain markdown; the only host-specific line is how to display an image inline, and it names the fallback
-(print the file path) for hosts without an image channel.
 
 ### Updating
 

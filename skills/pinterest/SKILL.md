@@ -1,6 +1,8 @@
 ---
 name: pinterest
 description: Get quick visual reference from Pinterest to ground design decisions in the work in progress. Searches with the user's own keywords, screens candidates for free, shows 12 numbered thumbnails as one contact sheet in the conversation, and delivers the design direction — palette, composition, type, texture — in the same reply, so the project can move straight on. One round trip. Writes nothing into the project, ever. Use when asked to search Pinterest, find visual references, gather inspiration, get design ideas, explore a visual or graphic direction, research a style, or pull references from a Pinterest board URL. For UI/UX patterns and product screens use refero-design or the Mobbin MCP instead — this is for graphic and art direction.
+license: MIT
+compatibility: Requires a shell with bash, curl, jq, file and uv (or any Python with Pillow), plus network access to install the scraper and reach Pinterest. Not usable in the Claude chat sandbox, which has neither network access nor runtime package installation.
 ---
 
 # Pinterest visual references

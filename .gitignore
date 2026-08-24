@@ -1,7 +1,5 @@
-# Scratch experiments are never committed — but the README explaining the
-# convention is, so a fresh clone gets the folder and knows what it's for.
-experiments/*
-!experiments/README.md
+# Scratch experiments are never committed — the convention is documented in CLAUDE.md.
+experiments/
 
 # macOS
 .DS_Store

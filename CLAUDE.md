@@ -7,8 +7,8 @@ Public: https://github.com/gabrielhidalgow/agent-skills
 ## Layout — there is no build, deploy, or sync step
 
 ```
-~/Desktop/Projects/agent-skills/pinterest/   ← this repo (edit here)
-~/.claude/skills/pinterest  →  symlink to it  ← what /pinterest loads
+~/Desktop/Projects/agent-skills/skills/pinterest/   ← this repo (edit here)
+~/.claude/skills/pinterest  →  symlink to it        ← what /pinterest loads
 ```
 
 The symlink means both paths are **the same file** (verified by inode). Editing here is live on the very
@@ -19,8 +19,12 @@ The only non-automatic step is a **stale clone**: changes made on github.com or 
 
 ## Experiments
 
-`experiments/` at the repo root is git-ignored scratch space. It sits outside `pinterest/` deliberately:
-sub-directories of a skill are read as part of it, so anything left there travels with the skill.
+`experiments/` at the repo root is **fully git-ignored** — nothing in it is tracked, not even its README.
+Do not re-add a `!experiments/README.md` exception: the folder is internal working convention, and a
+public repo offering a skill should not lead with it.
+
+It sits outside `skills/pinterest/` deliberately: sub-directories of a skill are read as part of it, so
+anything left there travels with the skill.
 
 One dated directory per experiment with a `NOTES.md`. If an experiment settles something, promote the
 conclusion into `SKILL.md` or the Invariants below and let the folder stay disposable.
@@ -38,7 +42,7 @@ Extract the sheet script from the reference file rather than retyping it, so you
 written:
 
 ```bash
-python3 -c "import re,pathlib;print(re.search(r\"<<'PY'\n(.*?)\nPY\n\",pathlib.Path('pinterest/references/contact-sheet.md').read_text(),re.S).group(1))" > /tmp/sheet.py
+python3 -c "import re,pathlib;print(re.search(r\"<<'PY'\n(.*?)\nPY\n\",pathlib.Path('skills/pinterest/references/contact-sheet.md').read_text(),re.S).group(1))" > /tmp/sheet.py
 uv run --quiet --with pillow python /tmp/sheet.py <thumbs-dir> <out.jpg> [start_n]
 ```
 

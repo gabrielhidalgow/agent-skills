@@ -1,0 +1,21 @@
+{
+  "name": "gabrielhidalgow-agent-skills",
+  "owner": {
+    "name": "Gabriel Hidalgo Witker"
+  },
+  "metadata": {
+    "description": "Skills for agentic coding tools",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "pinterest",
+      "description": "Quick visual reference from Pinterest to ground design decisions: searches your own keywords, shows 12 numbered thumbnails as one contact sheet, and delivers the design direction in the same reply. One round trip. Writes nothing into your project.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/pinterest"
+      ]
+    }
+  ]
+}
